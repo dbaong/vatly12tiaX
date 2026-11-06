@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COOLIDGE TUBE – INTERACTIVE X-RAY LAB</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>COOLIDGE TUBE – <span>INTERACTIVE X-RAY LAB</span></h1>
+  <nav id="tabs"></nav>
+  <div class="hb">
+    <button id="bPres">THUYẾT TRÌNH</button>
+    <button id="bHud">ẨN/HIỆN BẢNG ĐIỀU KHIỂN</button>
+    <button id="bFs">TOÀN MÀN HÌNH</button>
+  </div>
+</header>
+<main>
+  <section id="stage">
+    <canvas id="gl"></canvas>
+    <div id="labels"></div>
+    <canvas id="c2d" hidden></canvas>
+    <div id="err" hidden></div>
+    <div id="viewbar">
+      <button data-v="lab" class="on">NHÃN</button>
+      <button data-v="exp">TÁCH RỜI</button>
+      <button data-v="cut" class="on">CẮT LỚP</button>
+      <button data-v="traj" class="on">QUỸ ĐẠO e⁻</button>
+      <button data-v="fld" class="on">ĐIỆN TRƯỜNG</button>
+      <button data-v="reset">ĐẶT LẠI GÓC NHÌN</button>
+    </div>
+  </section>
+  <aside id="side"><div id="info"></div></aside>
+</main>
+<footer id="ctrl">
+  <div class="g">
+    <button id="bStart" class="pri">BẮT ĐẦU</button>
+    <button id="bPause">TẠM DỪNG</button>
+    <button id="bReset">ĐẶT LẠI</button>
+    <button id="bPrev">◀ TRƯỚC</button>
+    <button id="bNext">TIẾP ▶</button>
+  </div>
+  <div class="g">
+    <button data-sp="0.5">CHẬM 0,5×</button>
+    <button data-sp="1" class="on">BÌNH THƯỜNG 1×</button>
+    <button data-sp="2">NHANH 2×</button>
+    <input id="spd" type="range" min="0.25" max="3" step="0.25" value="1"><b id="spdV">1×</b>
+  </div>
+  <div class="g">
+    <label>Điện áp ống U <input id="kV" type="range" min="30" max="150" step="1" value="80"> <b id="kVv">80 kV</b></label>
+    <label>Dòng điện ống I <input id="mA" type="range" min="1" max="20" step="1" value="10"> <b id="mAv">10 mA</b></label>
+  </div>
+  <div id="tl"></div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>window.THREE||document.write('<script src="lib/three.min.js"><\/script>')</script>
+<script src="app.js"></script>
+</body>
+</html>
